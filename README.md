@@ -6,6 +6,6 @@ To use this tool, clone the repository on your Raspberry Pi. The repository cont
 
 ## Usage
 ```bash
-sh deploy-docker-hub.sh --version=<VERSION NUMBER> --repo=<DOCKER HUP REPOSITORY>
+sh deploy-docker-hub.sh --version=<VERSION NUMBER> --repo=<DOCKER HUB REPOSITORY>
 ```
 
