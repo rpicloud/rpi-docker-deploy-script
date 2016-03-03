@@ -8,6 +8,10 @@ case $i in
     -r=*|--repo=*)
     REPO="${i#*=}"
     ;;
+
+     -p=*|--port=*)
+    PORT="${i#*=}"
+    ;;
     *)
             # unknown option
     ;;
@@ -16,7 +20,14 @@ done
 
 echo
 echo "hub.docker.com repository to push to:" ${REPO}
-echo "version to tag the container with besides :latest" = ${VERSION}
+echo "version to tag the container with besides:"  ${VERSION}
+echo "port number to expose:" ${PORT}
+
+echo 'FROM java
+COPY app.jar /data/
+EXPOSE '${PORT}'
+CMD ["java", "-jar", "deployable-application.jar"]' > Dockerfile
+
 
 echo
 echo "Containerizing the successful build"
@@ -33,6 +44,7 @@ echo
 echo "######### STEP 3 - CLEANING UP #########"
 docker rmi ${REPO}:${VERSION}
 docker rmi ${REPO}:latest
+rm Dockerfile
 
 echo
 echo "######### ALL DONE! #########"
