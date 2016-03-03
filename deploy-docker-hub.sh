@@ -23,7 +23,7 @@ echo "hub.docker.com repository to push to:" ${REPO}
 echo "version to tag the container with besides:"  ${VERSION}
 echo "port number to expose:" ${PORT}
 
-echo 'FROM java
+echo 'FROM hypriot/rpi-java
 COPY app.jar /data/
 EXPOSE '${PORT}'
 CMD ["java", "-jar", "deployable-application.jar"]' > Dockerfile
