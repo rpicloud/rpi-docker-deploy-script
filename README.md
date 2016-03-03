@@ -9,3 +9,4 @@ To use this tool, clone the repository on your Raspberry Pi. The repository cont
 sh deploy-docker-hub.sh --version=<VERSION NUMBER> --repo=<DOCKER HUB REPOSITORY>
 ```
 
+**NB!: Rename your jar file to be app.jar**
