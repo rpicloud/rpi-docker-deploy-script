@@ -2,7 +2,7 @@
 FROM hypriot/rpi-java
 
 # Build number hard-coded so far
-COPY deployable-application.jar /data/
+COPY app.jar /data/
 
 EXPOSE 80
 CMD ["java", "-jar", "deployable-application.jar"]
