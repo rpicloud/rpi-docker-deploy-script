@@ -26,7 +26,7 @@ echo "port number to expose:" ${PORT}
 echo 'FROM hypriot/rpi-java
 COPY app.jar /data/
 EXPOSE '${PORT}'
-CMD ["java", "-jar", "deployable-application.jar"]' > Dockerfile
+CMD ["java", "-jar", "app.jar"]' > Dockerfile
 
 
 echo
