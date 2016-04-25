@@ -24,9 +24,9 @@ echo "version to tag the container with besides:"  ${VERSION}
 echo "port number to expose:" ${PORT}
 
 echo 'FROM hypriot/rpi-java
-COPY app.jar /data/
+COPY deployable-application.jar /data/
 EXPOSE '${PORT}'
-CMD ["java", "-jar", "app.jar"]' > Dockerfile
+CMD ["java", "-jar", "deployable-application.jar"]' > Dockerfile
 
 
 echo
@@ -39,12 +39,6 @@ echo
 echo "######### STEP 2 - PUSHING CONTAINER TO HUB.DOCKER.COM #########"
 docker push ${REPO}:${VERSION}
 docker push ${REPO}:latest
-
-echo
-echo "######### STEP 3 - CLEANING UP #########"
-docker rmi ${REPO}:${VERSION}
-docker rmi ${REPO}:latest
-rm Dockerfile
 
 echo
 echo "######### ALL DONE! #########"
